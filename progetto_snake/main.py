@@ -25,7 +25,6 @@ def crea_campo() -> list[str]:
     Ritorna l'area del campo da gioco definito nelle costanti
     :returns: una lista di stringhe che compongono l'area di gioco
     """
-    
     campo = []
     for y in range(altezza_campo):
         linea_campo = [BORDO_SINISTRO]

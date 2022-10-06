@@ -44,6 +44,7 @@ def crea_campo() -> list[list[str]]:
 
 campo_gioco = crea_campo()
 
+
 def componi_campo():
     """
     Ritorna il campo da gioco completo con il bordo
@@ -56,7 +57,7 @@ def componi_campo():
         campo.append(BORDO_DESTRO)
     return(BORDO_ORIZZONTALE + "".join(campo) + BORDO_ORIZZONTALE)
         
-print(componi_campo()) 
+#print(componi_campo()) 
 
 
 def posiziona_serpente() -> None:
@@ -64,11 +65,13 @@ def posiziona_serpente() -> None:
     campo_gioco[y_testa][x_testa] = TESTA
     return
 
+
 def vuota_campo():
     global campo_gioco
     campo_gioco[y_testa][x_testa] = " "
     return
-    
+
+
 def controls() -> None:
     """
     Definisce la direzione di marcia del serpente
@@ -88,6 +91,9 @@ def controls() -> None:
 
 
 def game():
+    """
+    Definisce le nuove coordinate della testa
+    """
     global direzione, y_testa, x_testa
     while direzione != 'stop':
         time.sleep(2)
@@ -102,6 +108,7 @@ def game():
             y_testa += 1
         if direzione == 'd':
             x_testa += 1
+        # controllo sui bordi
         if y_testa < 0 or y_testa >= altezza_campo or x_testa < 0 or x_testa >= larghezza_campo:
             direzione = 'stop'
 

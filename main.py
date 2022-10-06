@@ -3,9 +3,7 @@ Gioco Snake
 Le funzioni presenti in questo file permettono il funzionamento del gioco dello snake.
 In modo particolare il gioco consiste in un serpente che si muove all'interno di un rettangolo diventando sempre più lungo
 """
-from difflib import restore
-from glob import glob
-from types import NoneType
+
 import keyboard
 from threading import Thread
 import time
@@ -30,8 +28,8 @@ CODA = "x"
 def crea_campo() -> list[list[str]]:
     """
     (campo vuoto)
-    Ritorna l'area del campo da gioco definito nelle costanti
-    :returns: una lista di stringhe che compongono l'area di gioco
+    Ritorna l'area del campo da gioco (senza bordo) definito nelle costanti
+    :returns: una lista di liste di stringe vuote
     """
     campo = []
     for y in range(altezza_campo):
@@ -43,11 +41,13 @@ def crea_campo() -> list[list[str]]:
 
 #print(crea_campo())
 
+
 campo_gioco = crea_campo()
 
 def componi_campo():
     """
-    bla
+    Ritorna il campo da gioco completo con il bordo
+    :returns: una lista di liste di stringhe che compongono il campo da gioco completo di bordo
     """
     campo = []
     for lista in campo_gioco:
@@ -59,8 +59,7 @@ def componi_campo():
 print(componi_campo()) 
 
 
-
-def posiziona_serpente():
+def posiziona_serpente() -> None:
     global campo_gioco
     campo_gioco[y_testa][x_testa] = TESTA
     return
@@ -70,8 +69,6 @@ def vuota_campo():
     campo_gioco[y_testa][x_testa] = " "
     return
     
-
-
 def controls() -> None:
     """
     Definisce la direzione di marcia del serpente
@@ -90,7 +87,6 @@ def controls() -> None:
             direzione = 'stop'
 
 
-        
 def game():
     global direzione, y_testa, x_testa
     while direzione != 'stop':
@@ -108,7 +104,8 @@ def game():
             x_testa += 1
         if y_testa < 0 or y_testa >= altezza_campo or x_testa < 0 or x_testa >= larghezza_campo:
             direzione = 'stop'
-            
+
+
 if __name__ == '__main__':
     t1 = Thread(target=game)
     t2 = Thread(target=controls)

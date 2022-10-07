@@ -3,7 +3,7 @@
 ##
 campo = []
 
-def campo_crea (c: int, r: int):
+def campo_crea1 (c: int, r: int):
     # Imposta il gioco con un campo di c colonne e r righe.
     # Sia c che r devono essere numeri positivi.
     global campo
@@ -18,6 +18,8 @@ def campo_crea2 (c: int, r: int):
     # Sia c che r devono essere numeri positivi.
     global campo
     campo = [[' ' for x in range(c)] for y in range(r)]
+    
+campo_crea = campo_crea1
 
 def campo_altezza() -> int:
     # Ritorna il numero di righe del campo di gioco.

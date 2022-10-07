@@ -1,12 +1,12 @@
 ##
 ## Modulo campo da gioco
 ##
-campo = []
 
 def campo_crea1 (c: int, r: int):
     # Imposta il gioco con un campo di c colonne e r righe.
     # Sia c che r devono essere numeri positivi.
     global campo
+    campo = []
     for y in range(r):
         riga = []
         for x in range(c):

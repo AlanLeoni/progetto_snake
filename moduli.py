@@ -12,6 +12,12 @@ def campo_crea (c: int, r: int):
         for x in range(c):
             riga.append(' ')
         campo.append(riga)
+        
+def campo_crea2 (c: int, r: int):
+    # Imposta il gioco con un campo di c colonne e r righe.
+    # Sia c che r devono essere numeri positivi.
+    global campo
+    campo = [[' ' for x in range(c)] for y in range(r)]
 
 def campo_altezza() -> int:
     # Ritorna il numero di righe del campo di gioco.

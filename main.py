@@ -66,7 +66,10 @@ def posiziona_serpente() -> None:
     return
 
 
-def vuota_campo():
+def vuota_campo() -> None:
+    """
+    Sostituisce i caratteri della testa del serpente con uno spazio vuoto
+    """
     global campo_gioco
     campo_gioco[y_testa][x_testa] = " "
     return

@@ -57,7 +57,7 @@ def snake_un_passo () -> bool:
     # Esegue un passo del serpente.  Ritorna il valore True se il
     # passo è andato a buon fine e quindi il gioco può continuare,
     # oppure False se il passo ha portato alla fine del gioco.
-    pass
+    return True
 
 def snake_direzione (d: str):
     # Imposta la direzione di movimento della testa del serpente.  d

@@ -61,6 +61,9 @@ def componi_campo():
 
 
 def posiziona_serpente() -> None:
+    """
+    Posiziona il serpente nel campo di gioco in base alle sue coordinate
+    """
     global campo_gioco
     campo_gioco[y_testa][x_testa] = TESTA
     return
@@ -68,7 +71,7 @@ def posiziona_serpente() -> None:
 
 def vuota_campo() -> None:
     """
-    Sostituisce i caratteri della testa del serpente con uno spazio vuoto
+    Svuota il campo di gioco
     """
     global campo_gioco
     campo_gioco[y_testa][x_testa] = " "
@@ -77,7 +80,7 @@ def vuota_campo() -> None:
 
 def controls() -> None:
     """
-    Definisce la direzione di marcia del serpente
+    Cambia la direzione di movimento del serpente tramite i keypress
     """
     global direzione
     while direzione != 'stop':
@@ -95,14 +98,15 @@ def controls() -> None:
 
 def game():
     """
-    Definisce le nuove coordinate della testa
+    Avvia il gioco
     """
     global direzione, y_testa, x_testa
     while direzione != 'stop':
-        time.sleep(2)
+        time.sleep(1)
         posiziona_serpente()
         print(componi_campo())
         vuota_campo()
+        time.sleep(1)
         if direzione == 'w':
             y_testa -= 1
         if direzione == 'a':

@@ -1,32 +1,40 @@
 ##
 ## Modulo campo da gioco
 ##
+campo = []
 
 def campo_crea (c: int, r: int):
     # Imposta il gioco con un campo di c colonne e r righe.
-    pass
+    # Sia c che r devono essere numeri positivi.
+    global campo
+    for y in range(r):
+        riga = []
+        for x in range(c):
+            riga.append(' ')
+        campo.append(riga)
 
 def campo_altezza() -> int:
     # Ritorna il numero di righe del campo di gioco.
-    pass
+    return len(campo)
 
 def campo_larghezza() -> int:
     # Ritorna il numero di colonne del campo di gioco.
-    pass
+    return len(campo[0])
 
 def campo_cancella ():
     # Cancella il campo di gioco, reimpostando tutte le celle al
     # valore di cella vuota.  Questa funzione va fatta seguire da
     # snake_inizia.
-    pass
+    campo_crea(campo_larghezza(), campo_altezza())
 
 def campo_cella (c: int, r: int) -> str:
     # Ritorna la cella del campo di gioco alla colonna c, riga r.
-    pass
+    return campo[r][c]
 
 def campo_imposta_cella (c: int, r: int, valore: str):
     # Imposta la cella del campo di gioco alla colonna c, riga r.
-    pass
+    global campo
+    campo[r][c] = valore
 
 ##
 ## Modulo snake

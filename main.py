@@ -102,11 +102,11 @@ def game():
     """
     global direzione, y_testa, x_testa
     while direzione != 'stop':
-        time.sleep(1)
+        time.sleep(0.1)
         posiziona_serpente()
         print(componi_campo())
         vuota_campo()
-        time.sleep(1)
+        time.sleep(0.4)
         if direzione == 'w':
             y_testa -= 1
         if direzione == 'a':
